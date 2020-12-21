@@ -1,3 +1,5 @@
+/* eslint-disable default-case */
+/* eslint-disable react/prop-types */
 import React from 'react';
 import styled from 'styled-components';
 
@@ -22,11 +24,64 @@ const StatValue = styled(Stat)`
   color: ${({ theme }) => theme.primary};
 `;
 
-const StatsRow = () => (
-  <ListItem>
-    <Stat>Ciśnienie</Stat>
-    <StatValue>1027 hPa</StatValue>
-  </ListItem>
-);
+const StatsRow = (data) => {
+  const translatedData = {
+    title: data.title,
+    value: data.value,
+    sunrise: data.sunrise,
+    sunset: data.sunset,
+  };
+
+  switch (data.title) {
+    case 'pressure':
+      translatedData.title = 'Ciśnienie';
+      translatedData.value = `${data.value} hPa`;
+      break;
+
+    case 'wind':
+      translatedData.title = 'Prędkość wiatru';
+      translatedData.value = `${data.value} m/s`;
+      break;
+
+    case 'visibility':
+      translatedData.title = 'Widoczność';
+      translatedData.value = `${data.value} km`;
+      break;
+
+    case 'sunRiseSet':
+      if (typeof data.sunrise === 'undefined' && typeof data.sunset === 'undefined') {
+        translatedData.title = 'Wschód i zachód slońca';
+        translatedData.value = 'b/d | b/d';
+      } else {
+        const sunriseTime = new Date(data.sunrise * 1000).toLocaleTimeString('pl-PL', {
+          hour: '2-digit',
+          minute: '2-digit',
+        });
+        const sunsetTime = new Date(data.sunset * 1000).toLocaleTimeString('pl-PL', {
+          hour: '2-digit',
+          minute: '2-digit',
+        });
+        translatedData.title = 'Wschód i zachód slońca';
+        translatedData.value = `${sunriseTime} | ${sunsetTime}`;
+      }
+      break;
+
+    case 'humidity':
+      translatedData.title = 'Wilgotność';
+      translatedData.value = `${data.value} %`;
+      break;
+
+    case 'cloudiness':
+      translatedData.title = 'Zachmurzenie';
+      translatedData.value = `${data.value} %`;
+      break;
+  }
+  return (
+    <ListItem>
+      <Stat>{translatedData.title}</Stat>
+      <StatValue>{translatedData.value}</StatValue>
+    </ListItem>
+  );
+};
 
 export default StatsRow;

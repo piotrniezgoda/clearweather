@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 import LinkButton from 'components/atoms/LinkButton/LinkButton';
 import BasicWeatherInfo from 'components/atoms/BasicWeatherInfo/BasicWeatherInfo';
@@ -31,12 +32,15 @@ const StyledLinkButton = styled(LinkButton)`
   position: absolute;
   top: 5.1rem;
   left: 4rem;
+  text-decoration: none;
 `;
 
 const ResoultTopPanel = (weatherTheme) => (
   <>
     <HeaderTop weatherTheme={weatherTheme}>
-      <StyledLinkButton>Powrót</StyledLinkButton>
+      <StyledLinkButton as={Link} to="/">
+        Powrót
+      </StyledLinkButton>
       <BasicWeatherInfo />
     </HeaderTop>
     <LastUpdateBar />

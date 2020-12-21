@@ -8,8 +8,9 @@ const Main = styled.main`
   justify-content: center;
   align-items: center;
   position: relative;
-  height: 90vh;
+  height: 100%;
   bottom: 0;
+  padding: 0.5rem 1rem;
 `;
 
 const HomeMain = () => (

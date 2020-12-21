@@ -18,6 +18,10 @@ const Input = styled.input`
   font-weight: 400;
   font-size: 1.6rem;
   color: ${({ theme }) => theme.primary};
+
+  @media (max-width: 440px) {
+    width: 100%;
+  }
 `;
 
 export default Input;

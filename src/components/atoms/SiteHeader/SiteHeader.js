@@ -5,6 +5,10 @@ const SiteTitle = styled.h1`
   font-size: 3.6rem;
   color: #ff5f6d;
   text-align: center;
+
+  @media (max-width: 346px) {
+    font-size: 2.7rem;
+  }
 `;
 
 const SiteSubtitle = styled.span`
@@ -14,12 +18,16 @@ const SiteSubtitle = styled.span`
   margin-left: 0.6rem;
 `;
 
+const Header = styled.header`
+  padding: 4rem 0 3.5rem 0;
+`;
+
 const SiteHeader = () => (
-  <header>
+  <Header>
     <SiteTitle>
       Clearweather<SiteSubtitle>Pogoda</SiteSubtitle>
     </SiteTitle>
-  </header>
+  </Header>
 );
 
 export default SiteHeader;
