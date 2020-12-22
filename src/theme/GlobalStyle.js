@@ -18,6 +18,10 @@ const globalStyle = createGlobalStyle`
     font-size: 1.6rem;
     font-family: 'Roboto', sans-serif;;
   }
+
+  #root {
+    height: 100vh;
+  }
 `;
 
 export default globalStyle;
