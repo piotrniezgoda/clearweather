@@ -8,6 +8,8 @@ const LinkButton = styled.a`
   padding: 0.5rem 0 0.5rem 3.5rem;
   cursor: pointer;
   background-position: 0 50%;
+  border-bottom: 1px solid transparent;
+  text-decoration: none;
 
   &:hover {
     border-bottom: 1px solid ${({ theme }) => theme.white};

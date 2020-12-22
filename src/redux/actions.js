@@ -11,6 +11,7 @@ export const addData = ({ payload }) => {
         city: payload.name,
         icon: payload.weather[0].icon,
         weatherUpdate: payload.dt,
+        weatherType: payload.weather[0].main,
         detailWeather: {
           pressure: payload.main.pressure,
           visibility: payload.visibility,

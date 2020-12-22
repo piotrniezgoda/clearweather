@@ -9,6 +9,7 @@ import store from 'redux/store';
 import { theme } from 'theme/MainTheme';
 import SearchPage from 'views/SearchPage';
 import WeatherResoult from 'views/WeatherResoult';
+import ErrorPage from 'views/ErrorPage';
 
 ReactDOM.render(
   <React.StrictMode>
@@ -19,6 +20,7 @@ ReactDOM.render(
           <Switch>
             <Route exact path="/" component={SearchPage} />
             <Route exact path="/weather" component={WeatherResoult} />
+            <Route exact path="/error" component={ErrorPage} />
           </Switch>
         </ThemeProvider>
       </BrowserRouter>

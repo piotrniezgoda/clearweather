@@ -43,10 +43,19 @@ const StyledButton = styled(Button)`
 `;
 
 const ErrorMsg = styled.p`
-  color: #f30e22;
+  color: #ffffff;
   font-weight: 700;
   font-size: 1.7rem;
   text-align: center;
+  position: absolute;
+  bottom: 3rem;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+  -ms-transform: translateX(-50%);
+  transform: translateX(-50%);
+  background: #ff2c2c;
+  padding: 1rem;
+  border-radius: 10px;
 `;
 
 const SearchBox = ({ addData }) => {
@@ -64,11 +73,24 @@ const SearchBox = ({ addData }) => {
       fetch(
         `//api.openweathermap.org/data/2.5/weather?q=${inputValue}&appid=${apikey}&lang=pl&units=metric`,
       )
-        .then((response) => response.json())
+        // eslint-disable-next-line consistent-return
+        .then((response) => {
+          if (response.status === 200) {
+            return response.json();
+            // eslint-disable-next-line no-else-return
+          } else {
+            throw new Error('something went wrong: 404');
+          }
+        })
         .then((data) => {
           changeIsLoaded(false);
           addData(data);
           history.push('/weather');
+        })
+        .catch((error) => {
+          // eslint-disable-next-line no-console
+          console.log(error);
+          history.push('/error');
         });
     } else {
       changeIsInvalidValue(true);
