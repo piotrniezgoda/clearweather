@@ -20,6 +20,8 @@ const globalStyle = createGlobalStyle`
   #root {
     height: 100vh;
     overflow: hidden;
+    max-width: 1920px;
+    margin: 0 auto;
 
     @media(max-width:823px) {
       overflow: auto;

@@ -23,7 +23,7 @@ const SearchContainer = styled.div`
   box-shadow: 5px 5px 5px 0 rgba(0, 0, 0, 0.25);
   position: relative;
 
-  @media (max-width: 360px) {
+  @media (max-width: 380px) {
     height: 24.1rem;
   }
 
@@ -64,6 +64,10 @@ const Form = styled.form`
 const StyledButton = styled(Button)`
   margin-top: 4.4rem;
 
+  @media (max-width: 380px) {
+    margin-top: 1rem;
+  }
+
   @media only screen and (min-device-width: 320px) and (max-device-width: 568px) and (-webkit-min-device-pixel-ratio: 2) and (orientation: landscape) {
     margin-top: 1rem;
   }
@@ -87,7 +91,7 @@ const ErrorMsg = styled.p`
 
 const SearchBox = ({ addData }) => {
   const [inputValue, setInputValue] = useState('');
-  const [isLoaded, changeIsLoaded] = useState(false);
+  const [isLoaded, changeIsLoaded] = useState(true);
   const [isInvalidValue, changeIsInvalidValue] = useState(false);
   const history = useHistory();
 
@@ -96,7 +100,7 @@ const SearchBox = ({ addData }) => {
     const apikey = '8bf066e8c144add877cf52ce8de3e9bf';
 
     if (inputValue !== 'null' && typeof inputValue !== 'undefined' && inputValue !== '') {
-      changeIsLoaded(true);
+      changeIsLoaded(false);
       fetch(
         `//api.openweathermap.org/data/2.5/weather?q=${inputValue}&appid=${apikey}&lang=pl&units=metric`,
       )
@@ -110,13 +114,14 @@ const SearchBox = ({ addData }) => {
           }
         })
         .then((data) => {
-          changeIsLoaded(false);
+          changeIsLoaded(true);
           addData(data);
           history.push('/weather');
         })
         .catch((error) => {
           // eslint-disable-next-line no-console
           console.log(error);
+          changeIsLoaded(true);
           history.push('/error');
         });
     } else {
@@ -141,7 +146,7 @@ const SearchBox = ({ addData }) => {
           />
         </div>
         <StyledButton>Szukaj</StyledButton>
-        {isLoaded && (
+        {!isLoaded && (
           <div className="lds-ring">
             <div></div>
             <div></div>

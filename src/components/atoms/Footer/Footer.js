@@ -13,7 +13,7 @@ const HomeFooter = styled.footer`
   text-align: center;
   padding: 3.5rem 0.5rem;
 
-  @media (max-width: 360px) {
+  @media (max-width: 380px) {
     padding: 0.5rem;
   }
 

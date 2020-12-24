@@ -21,7 +21,7 @@ const SiteSubtitle = styled.span`
 const Header = styled.header`
   padding: 4rem 0 3.5rem 0;
 
-  @media (max-width: 360px) {
+  @media (max-width: 375px) {
     padding: 2rem 0 1.5rem 0;
   }
 
