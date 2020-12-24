@@ -5,7 +5,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { MemoryRouter } from 'react-router';
-import { PageTransition } from '@steveeeie/react-page-transition';
+import { AnimatePresence } from 'framer-motion';
 import { Provider } from 'react-redux';
 import { Helmet } from 'react-helmet';
 import { Switch, Route } from 'react-router-dom';
@@ -52,13 +52,13 @@ ReactDOM.render(
         <Route
           render={({ location }) => {
             return (
-              <PageTransition preset="moveToBottomFromTop" transitionKey={location.pathname}>
-                <Switch location={location}>
+              <AnimatePresence>
+                <Switch location={location} key={location.pathname}>
                   <Route exact path="/" component={SearchPage} />
                   <Route exact path="/weather" component={WeatherResoult} />
                   <Route exact path="/error" component={ErrorPage} />
                 </Switch>
-              </PageTransition>
+              </AnimatePresence>
             );
           }}
         />
