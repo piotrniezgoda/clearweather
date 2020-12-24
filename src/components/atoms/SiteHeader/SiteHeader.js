@@ -20,6 +20,26 @@ const SiteSubtitle = styled.span`
 
 const Header = styled.header`
   padding: 4rem 0 3.5rem 0;
+
+  @media (max-width: 360px) {
+    padding: 2rem 0 1.5rem 0;
+  }
+
+  @media only screen and (min-device-width: 375px) and(max-device-width: 700px) and (orientation: landscape) {
+    padding: 1rem 0 0.5rem 0;
+  }
+
+  @media only screen and (min-device-width: 375px) and (max-device-width: 667px) and (-webkit-min-device-pixel-ratio: 2) and (orientation: landscape) {
+    padding: 1rem 0 0.5rem 0;
+  }
+
+  @media only screen and (min-device-width: 414px) and (max-device-width: 736px) and (-webkit-min-device-pixel-ratio: 3) and (orientation: landscape) {
+    padding: 1rem 0 0.5rem 0;
+  }
+
+  @media only screen and (min-device-width: 375px) and (max-device-width: 812px) and (-webkit-min-device-pixel-ratio: 3) and (orientation: landscape) {
+    padding: 1rem 0 0.5rem 0;
+  }
 `;
 
 const SiteHeader = () => (

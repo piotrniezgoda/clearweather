@@ -12,6 +12,22 @@ const HomeFooter = styled.footer`
   border-top: 1px solid ${({ theme }) => theme.grey};
   text-align: center;
   padding: 3.5rem 0.5rem;
+
+  @media (max-width: 360px) {
+    padding: 0.5rem;
+  }
+
+  @media only screen and (min-device-width: 375px) and (max-device-width: 667px) and (-webkit-min-device-pixel-ratio: 2) and (orientation: landscape) {
+    padding: 0.25rem 0;
+  }
+
+  @media only screen and (min-device-width: 414px) and (max-device-width: 736px) and (-webkit-min-device-pixel-ratio: 3) and (orientation: landscape) {
+    padding: 0.25rem 0;
+  }
+
+  @media only screen and (min-device-width: 375px) and (max-device-width: 812px) and (-webkit-min-device-pixel-ratio: 3) and (orientation: landscape) {
+    padding: 0.25rem 0;
+  }
 `;
 
 const FooterParagraph = styled.p`

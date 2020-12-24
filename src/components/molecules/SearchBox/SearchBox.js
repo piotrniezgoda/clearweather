@@ -22,6 +22,29 @@ const SearchContainer = styled.div`
   border-radius: 30px;
   box-shadow: 5px 5px 5px 0 rgba(0, 0, 0, 0.25);
   position: relative;
+
+  @media (max-width: 360px) {
+    height: 24.1rem;
+  }
+
+  @media only screen and (min-device-width: 375px) and (max-device-width: 667px) and (-webkit-min-device-pixel-ratio: 2) and (orientation: landscape) {
+    width: 48.4rem;
+    height: 22.1rem;
+  }
+
+  @media only screen and (min-device-width: 414px) and (max-device-width: 736px) and (-webkit-min-device-pixel-ratio: 3) and (orientation: landscape) {
+    width: 48.4rem;
+    height: 22.1rem;
+  }
+
+  @media only screen and (min-device-width: 375px) and (max-device-width: 812px) and (-webkit-min-device-pixel-ratio: 3) and (orientation: landscape) {
+    width: 48.4rem;
+    height: 22.1rem;
+  }
+
+  @media only screen and (min-device-width: 320px) and (max-device-width: 568px) and (-webkit-min-device-pixel-ratio: 2) and (orientation: landscape) {
+    height: 18.1rem;
+  }
 `;
 
 const Label = styled.label`
@@ -40,6 +63,10 @@ const Form = styled.form`
 
 const StyledButton = styled(Button)`
   margin-top: 4.4rem;
+
+  @media only screen and (min-device-width: 320px) and (max-device-width: 568px) and (-webkit-min-device-pixel-ratio: 2) and (orientation: landscape) {
+    margin-top: 1rem;
+  }
 `;
 
 const ErrorMsg = styled.p`
@@ -129,13 +156,7 @@ const SearchBox = ({ addData }) => {
 };
 
 SearchBox.propTypes = {
-  addData: PropTypes.func,
-};
-
-SearchBox.defaultProps = {
-  addData: {
-    g: 'asd',
-  },
+  addData: PropTypes.func.isRequired,
 };
 
 const mapDispatchToProps = (dispatch) => ({

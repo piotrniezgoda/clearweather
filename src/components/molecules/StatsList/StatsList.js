@@ -7,6 +7,7 @@ import StatsRow from 'components/atoms/StatsRow/StatsRow';
 const MainContainer = styled.main`
   max-width: 50rem;
   margin: 5rem auto 0 auto;
+  padding: 1rem 0 4rem 0;
 `;
 
 const StatsList = ({ weatherData }) => {
