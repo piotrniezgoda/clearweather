@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { motion } from 'framer-motion';
 import styled from 'styled-components';
 import Button from 'components/atoms/Button/Button';
 
@@ -28,17 +29,24 @@ const ErrorParagraph = styled.p`
 `;
 
 const ErrorPage = () => (
-  <Container>
-    <Title>Wystąpił Błąd!</Title>
-    <ErrorParagraph>Sprawdź, czy wpisana nazwa miejscowości jest poprawna</ErrorParagraph>
-    <ErrorParagraph>
-      Jeżeli nazwa miejscowości jest poprawna, to być może nie jest ona dostępna w API pogodowym.
-      można spróbować wpisać nazwę sąsiedniej miejscowości
-    </ErrorParagraph>
-    <Button as={Link} to="/">
-      Powrót
-    </Button>
-  </Container>
+  <motion.div
+    exit={{ opacity: 0, height: 0, overflow: 'hidden' }}
+    initial={{ opacity: 0, height: 0, overflow: 'hidden' }}
+    animate={{ opacity: 1, height: 'auto', overflow: 'visible' }}
+    transition={{ type: 'tween', duration: 0.4 }}
+  >
+    <Container>
+      <Title>Wystąpił Błąd!</Title>
+      <ErrorParagraph>Sprawdź, czy wpisana nazwa miejscowości jest poprawna</ErrorParagraph>
+      <ErrorParagraph>
+        Jeżeli nazwa miejscowości jest poprawna, to być może nie jest ona dostępna w API pogodowym.
+        można spróbować wpisać nazwę sąsiedniej miejscowości
+      </ErrorParagraph>
+      <Button as={Link} to="/">
+        Powrót
+      </Button>
+    </Container>
+  </motion.div>
 );
 
 export default ErrorPage;

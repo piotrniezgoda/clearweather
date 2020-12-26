@@ -16,6 +16,7 @@ const SearchPage = () => (
     exit={{ opacity: 0, height: 0, overflow: 'hidden' }}
     initial={{ opacity: 0, height: 0, overflow: 'hidden' }}
     animate={{ opacity: 1, height: 'auto', overflow: 'visible' }}
+    transition={{ type: 'tween', duration: 0.4 }}
   >
     <Container>
       <SiteHeader />
